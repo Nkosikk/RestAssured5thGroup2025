@@ -21,4 +21,14 @@ public class TestimonialsPayload {
 
         return createTestimonial;
     }
+
+    public JSONObject updateTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
+        JSONObject createTestimonial = new JSONObject();
+        createTestimonial.put("title",title);
+        createTestimonial.put("content",content);
+        createTestimonial.put("rating",rating);
+        createTestimonial.containsValue(isPublic);
+
+        return createTestimonial;
+    }
 }
