@@ -5,11 +5,12 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static common.BaseURI.baseURL;
-import static payloadBuilder.TestimonialsPayload.loginUserPayload;
+import static payloadBuilder.TestimonialsPayload.*;
 
 public class NdosiRequestBuilder {
 
     static String authToken;
+    static String testimonialId;
 
     public static Response loginUserResponse(){
 
@@ -26,5 +27,62 @@ public class NdosiRequestBuilder {
         authToken = response.jsonPath().getString("data.token");
         return response;
 
+    }
+
+    public static Response createTestimonialResponse(){
+
+        Response response = RestAssured.given()
+                .baseUri(baseURL)
+                .basePath("/API/testimonials")
+                .header("Authorization", "Bearer " + authToken)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .body(createTestimonialPayload("Testimonial1","This is an awesome class",4,true))
+                .post()
+                .then()
+                .extract().response();
+
+        testimonialId = response.jsonPath().getString("data.Id");
+        return response;
+    }
+
+    public static Response updateTestimonialResponse(){
+
+        return RestAssured.given()
+                .baseUri(baseURL)
+                .basePath("/API/testimonials/"+testimonialId)
+                .header("Authorization", "Bearer " + authToken)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .body(updateTestimonialPayload("Testimonial2","This is an awesome class",4,true))
+                .put()
+                .then()
+                .extract().response();
+    }
+
+    public static Response retrieveTestimonialResponse(){
+
+        return RestAssured.given()
+                .baseUri(baseURL)
+                .basePath("/API/testimonials")
+                .header("Authorization", "Bearer " + authToken)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .get()
+                .then()
+                .extract().response();
+    }
+
+    public static Response removeTestimonialResponse(){
+
+        return RestAssured.given()
+                .baseUri(baseURL)
+                .basePath("/API/testimonials/"+testimonialId)
+                .header("Authorization", "Bearer " + authToken)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .delete()
+                .then()
+                .extract().response();
     }
 }
