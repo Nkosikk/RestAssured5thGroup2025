@@ -54,6 +54,15 @@
             <version>5.5.1</version>
             <scope>basic.Testimonials</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20231013</version>
+        </dependency>
+
     </dependencies>
+
+
 
 </project>

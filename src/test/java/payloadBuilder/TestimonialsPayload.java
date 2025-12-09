@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 public class TestimonialsPayload {
 
-    public JSONObject loginUserPayload(String email, String password) {
+    public static JSONObject loginUserPayload(String email, String password) {
 
         JSONObject loginUser = new JSONObject();
         loginUser.put("email",email);
@@ -12,7 +12,7 @@ public class TestimonialsPayload {
 
         return loginUser;
     }
-    public JSONObject createTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
+    public static JSONObject createTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
         JSONObject createTestimonial = new JSONObject();
         createTestimonial.put("title",title);
         createTestimonial.put("content",content);
@@ -22,7 +22,7 @@ public class TestimonialsPayload {
         return createTestimonial;
     }
 
-    public JSONObject updateTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
+    public static JSONObject updateTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
         JSONObject createTestimonial = new JSONObject();
         createTestimonial.put("title",title);
         createTestimonial.put("content",content);
