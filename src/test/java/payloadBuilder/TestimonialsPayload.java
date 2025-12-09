@@ -7,29 +7,28 @@ public class TestimonialsPayload {
     public JSONObject loginUserPayload(String email, String password) {
 
         JSONObject loginUser = new JSONObject();
-        loginUser.put("email", email);
-        loginUser.put("password", password);
+        loginUser.put("email",email);
+        loginUser.put("password",password);
 
         return loginUser;
     }
+    public JSONObject createTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
+        JSONObject createTestimonial = new JSONObject();
+        createTestimonial.put("title",title);
+        createTestimonial.put("content",content);
+        createTestimonial.put("rating",rating);
+        createTestimonial.containsValue(isPublic);
 
-    public JSONObject CreateTestimonialPayload(String title, String content, Integer rating, Boolean isPublic) {
-        JSONObject CreateTestimonial = new JSONObject();
-        CreateTestimonial.put("title", title);
-        CreateTestimonial.put("content", content);
-        CreateTestimonial.put("rating", rating);
-        CreateTestimonial.containsValue(isPublic);
-
-        return CreateTestimonial;
+        return createTestimonial;
     }
 
-    public JSONObject UpdateTestimonialPayload(String content, Integer rating) {
-        JSONObject UpdateTestimonial = new JSONObject();
-        UpdateTestimonial.put("content", content);
-        UpdateTestimonial.put("rating", rating);
+    public JSONObject updateTestimonialPayload(String title, String content, Integer rating, Boolean isPublic){
+        JSONObject createTestimonial = new JSONObject();
+        createTestimonial.put("title",title);
+        createTestimonial.put("content",content);
+        createTestimonial.put("rating",rating);
+        createTestimonial.containsValue(isPublic);
 
-        return UpdateTestimonial;
+        return createTestimonial;
     }
-
-
 }
