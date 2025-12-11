@@ -1,15 +1,24 @@
 package tests;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import requestBuilder.NdosiRequestBuilder;
+import utils.DatabaseConnection;
+
+import java.sql.SQLException;
 
 import static org.hamcrest.Matchers.equalTo;
 
 public class NdosiAPITests {
 
+    @BeforeClass
+    public void setup() throws SQLException {
+        // Load database values before running tests
+        DatabaseConnection.dbConection();
+    }
     @Test(priority = 1)
     public void loginUserTest(){
-        NdosiRequestBuilder.loginUserResponse()
+        NdosiRequestBuilder.loginUserResponse(DatabaseConnection.getEmail, DatabaseConnection.getPassword)
                 .then()
                 .log().all()
                 .assertThat()
