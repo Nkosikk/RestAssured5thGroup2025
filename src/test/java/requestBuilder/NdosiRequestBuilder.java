@@ -2,7 +2,10 @@ package requestBuilder;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
+
+import java.io.File;
 
 import static common.BaseURI.baseURL;
 import static payloadBuilder.TestimonialsPayload.*;
@@ -25,6 +28,7 @@ public class NdosiRequestBuilder {
                 .extract().response();
 
         authToken = response.jsonPath().getString("data.token");
+        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File("src/test/java/schemas/loginUser.json")));
         return response;
 
     }
