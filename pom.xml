@@ -45,6 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
+            //java faker used to generate test data
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
