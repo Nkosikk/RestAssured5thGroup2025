@@ -69,6 +69,18 @@ public class KeishiaAPITests {
                 .statusCode(204); // OpenWeather returns 204 No Content on successful delete
     }
 
+    @Test(priority = 5)
+    public void verifyWeatherStationDeleted() {
+        // Attempt to retrieve the deleted station
+        WeatherStationRequestBuilder.retrieveWeatherStationInformation(KeishiaAPITests.stationId)
+                .then()
+                .log().all()
+                .assertThat()
+                .statusCode(404) // API should return 404 since the station was deleted
+                .body("message", equalTo("Station not found")); // optional: check the error message
+    }
+
+
 
 
 }
