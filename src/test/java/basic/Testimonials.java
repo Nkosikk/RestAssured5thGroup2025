@@ -109,6 +109,23 @@ public class Testimonials {
         Assert.assertEquals(actualStatusCode, 200, "Status code should be 200");
     }
 
+    @Test(priority = 4)
+    public void deleteTestimonialTest(){
+        String path = "/API/testimonials/" +testimonialId;
+        Response responseBody = RestAssured.given()
+                .baseUri(baseURL)
+                .basePath(path)
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + authToken)
+                .log().all()
+                .delete().prettyPeek();
+
+        int actualStatusCode = responseBody.getStatusCode();
+        Assert.assertEquals(actualStatusCode, 200, "Status code should be 200");
+    }
+
+
+
 
 }
 
