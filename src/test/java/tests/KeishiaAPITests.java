@@ -2,9 +2,16 @@ package tests;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import payloadBuilder.WeatherStationAPIPayload;
 import requestBuilder.WeatherStationRequestBuilder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+import io.restassured.response.Response;
+import org.json.JSONObject;
+import org.testng.annotations.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class KeishiaAPITests {
 
@@ -81,6 +88,25 @@ public class KeishiaAPITests {
     }
 
 
+   /* public class WeatherStationApiTest {
+
+        @ExtentReportManager (priority = 6)
+        public void shouldFailWhenStationNameIsEmpty() {
+
+            JSONObject payload =
+                    WeatherStationAPIPayload.emptyWeatherStationNamePayload(
+                            "ext-12345",
+                            ""   // empty station name
+                    );
+
+            Response response =
+                    WeatherStationRequestBuilder.emptyStationName(payload);
+
+            assertThat(response.getStatusCode(), is(400));
+            assertThat(response.jsonPath().getString("message"),
+                    containsString("name"));
+        }
+    }*/
 
 
 }

@@ -6,6 +6,9 @@ import static common.BaseURI.weatherBaseURL;
 import static payloadBuilder.WeatherStationAPIPayload.registerWeatherStationPayload;
 import static payloadBuilder.WeatherStationAPIPayload.updateWeatherStationPayload;
 import java.util.UUID;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.json.JSONObject;
 
 public class WeatherStationRequestBuilder {
 
@@ -95,7 +98,37 @@ public class WeatherStationRequestBuilder {
     }
 
 
-}
+   /* public class WeatherStationRequestBuilder {
+
+        public static Response emptyStationName(JSONObject payload) {
+
+            return RestAssured
+                    .given()
+                    .baseUri(weatherBaseURL)
+                    .basePath("/data/3.0/stations")
+                    .queryParam("appid", API_KEY)
+                    .contentType("application/json")
+                    .body(payload.toString())
+                    .log().all()
+                    .when()
+                    .put()
+                    .then()
+                    .log().all()
+                    .extract()
+                    .response();
+        }
+    }*/
+
+
+
+
+
+
+    }
+
+
+
+
 
 
 

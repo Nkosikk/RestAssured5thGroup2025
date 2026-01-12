@@ -34,6 +34,24 @@ public class WeatherStationAPIPayload {
         return payload;
     }
 
+
+
+ /*   public class WeatherStationAPIPayload {
+
+        public static JSONObject emptyWeatherStationNamePayload(
+                String externalId,
+                String name
+        ) {
+            JSONObject payload = new JSONObject();
+            payload.put("external_id", externalId);
+            payload.put("name", name);
+            return payload;
+        }
+    }
+*/
+
+
+
 }
 
 
