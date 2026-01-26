@@ -32,7 +32,6 @@ public class ExtentReportManager {
         extentReports.setSystemInfo("Execution Machine" , System.getProperty("user.name"));
 
         return extentReports;
-
     }
 
 
