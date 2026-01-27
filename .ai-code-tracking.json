@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "records": [
+    {
+      "filePath": "/AdminCourseRequestBuilder.java",
+      "timestamp": 1769530871818,
+      "startOffset": 2306,
+      "endOffset": 2326,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/Users/avelanoganta/Documents/AvelaNoganta/KKAutomation/gitclones/RestAssured5thGroup2025/src/test/java/requestBuilder/AdminCourseRequestBuilder.java",
+      "timestamp": 1769530890174,
+      "startOffset": 2331,
+      "endOffset": 2511,
+      "codeContent": "Response(String courseId){\n\n        return RestAssured.given()\n                .baseUri(baseURL)\n                .basePath(\"/API/admin/courses/\" + courseId)\n                .header",
+      "aiProbability": 95,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 6
+    },
+    {
+      "filePath": "/Users/avelanoganta/Documents/AvelaNoganta/KKAutomation/gitclones/RestAssured5thGroup2025/src/test/java/requestBuilder/AdminCourseRequestBuilder.java",
+      "timestamp": 1769531290506,
+      "startOffset": 2662,
+      "endOffset": 2701,
+      "codeContent": "\n                .extract().response();",
+      "aiProbability": 70,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/AdminCourseRequestBuilder.java",
+      "timestamp": 1769531347303,
+      "startOffset": 2319,
+      "endOffset": 2735,
+      "codeContent": "RIntellijIdeaRulezzz  DeleteCourseResponse() {\n\n        return RestAssured.given()\n                .baseUri(baseURL)\n                .basePath(\"/API/admin/courses/\" + adminCourseId)\n                .header(\"Authorization\", \"Bearer \" + authToken)\n                .contentType(ContentType.JSON)\n                .log().all()\n                .delete()\n                .then()\n                .extract().response();\n    }",
+      "aiProbability": 95,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 12
+    },
+    {
+      "filePath": "/AdminCourseTests.java",
+      "timestamp": 1769531790161,
+      "startOffset": 1405,
+      "endOffset": 1425,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/AdminCourseTests.java",
+      "timestamp": 1769531954869,
+      "startOffset": 1404,
+      "endOffset": 1449,
+      "codeContent": "    @Test(priority \u003d 4)ÒIntellijIdeaRulezzz \n",
+      "aiProbability": 90,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/Users/avelanoganta/Documents/AvelaNoganta/KKAutomation/gitclones/RestAssured5thGroup2025/src/test/java/tests/AdminCourseTests.java",
+      "timestamp": 1769531995040,
+      "startOffset": 0,
+      "endOffset": 1686,
+      "codeContent": "package tests;\n\nimport org.testng.annotations.Test;\nimport requestBuilder.AdminCourseRequestBuilder;\n\n\nimport static org.hamcrest.Matchers.equalTo;\n\npublic class AdminCourseTests {\n\n    @Test(priority \u003d 1)\n    public void loginUserTest(){\n        AdminCourseRequestBuilder.loginUserResponse(\"njceles@gmail.com\",\"@12345678\")\n                .then()\n                .log().all()\n                .assertThat()\n                .statusCode(200)\n                .body(\"success\",equalTo(true));\n    }\n    @Test(priority \u003d 2)\n    public void GetCoursesTest(){\n        AdminCourseRequestBuilder.getAllCoursesResponse()\n                .then()\n                .log().all()\n                .assertThat()\n                .statusCode(200)\n                .body(\"success\",equalTo(true));\n    }\n\n    @Test(priority \u003d 3)\n    public void createCourseTest(){\n        AdminCourseRequestBuilder.PostCoursesResponse(\n                \"Test 1234\",\n                \"Description my Desc\",\n                \"This is the content i want to post\",\n                \"https://www.ndosiautomation.co.za/\",\n                \"6 Months\",\n                \"beginner\",\n                \"Automation\",\n                \"650\",\n                true,\n                true\n        )\n                .then()\n                .log().all()\n                .assertThat()\n                .statusCode(201)\n                .body(\"success\",equalTo(true));\n    }\n    @Test(priority \u003d 4)\npublic void DeleteCourseTest(){\n        AdminCourseRequestBuilder.DeleteCourseResponse()\n                .then()\n                .log().all()\n                .assertThat()\n                .statusCode(200)\n                .body(\"success\",equalTo(true));\n}\n\n}\n",
+      "aiProbability": 70,
+      "aiTool": "GitHub Copilot",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 61
+    }
+  ],
+  "toolStats": {
+    "GitHub Copilot": {
+      "usageCount": 7,
+      "totalLines": 85
+    }
+  }
+}

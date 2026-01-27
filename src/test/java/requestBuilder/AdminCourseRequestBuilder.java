@@ -14,7 +14,7 @@ import static payloadBuilder.TestimonialsPayload.loginUserPayload;
 
 public class AdminCourseRequestBuilder {
     static String authToken;
-    //static String adminCourseId;
+    static String adminCourseId;
 
     public static Response loginUserResponse(String email, String password){
 
@@ -49,7 +49,7 @@ public class AdminCourseRequestBuilder {
                                                String duration, String level, String category, String price,
                                                boolean isPublished, boolean isFeatured){
 
-        return RestAssured.given()
+        Response response =  RestAssured.given()
                 .baseUri(baseURL)
                 .basePath("/API/admin/courses")
                 .header("Authorization", "Bearer " + authToken)
@@ -57,6 +57,22 @@ public class AdminCourseRequestBuilder {
                 .log().all()
                 .body(PostCoursesPayload(title,description,content,thumbnailUrl,duration,level,category,price,isPublished,isFeatured))
                 .post()
+                .then()
+                .extract().response();
+
+        adminCourseId = response.jsonPath().getString("data.id");
+        return response;
+    }
+
+    public static Response DeleteCourseResponse() {
+
+        return RestAssured.given()
+                .baseUri(baseURL)
+                .basePath("/API/admin/courses/" + adminCourseId)
+                .header("Authorization", "Bearer " + authToken)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .delete()
                 .then()
                 .extract().response();
     }
