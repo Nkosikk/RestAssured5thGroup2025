@@ -17,7 +17,7 @@ public class TestimonialsPayload {
         createTestimonial.put("title",title);
         createTestimonial.put("content",content);
         createTestimonial.put("rating",rating);
-        createTestimonial.containsValue(isPublic);
+        createTestimonial.put("isPublic",isPublic);
 
         return createTestimonial;
     }
@@ -27,7 +27,7 @@ public class TestimonialsPayload {
         createTestimonial.put("title",title);
         createTestimonial.put("content",content);
         createTestimonial.put("rating",rating);
-        createTestimonial.containsValue(isPublic);
+        createTestimonial.put("isPublic",isPublic);
 
         return createTestimonial;
     }
