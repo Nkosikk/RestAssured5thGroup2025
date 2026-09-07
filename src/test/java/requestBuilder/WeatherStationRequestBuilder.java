@@ -1,12 +1,16 @@
 package requestBuilder;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
 import static common.BaseURI.weatherBaseURL;
 import static io.restassured.RestAssured.given;
 import static payloadBuilder.WeatherStationAPIPayload.registerWeatherStationPayload;
 import static payloadBuilder.WeatherStationAPIPayload.updateWeatherStationPayload;
+
 import java.util.UUID;
+
 import org.json.JSONObject;
 
 
@@ -86,8 +90,6 @@ public class WeatherStationRequestBuilder {
                 .when()
                 .put("/{stationId}");
     }
-
-
 
 
     public static Response deleteWeatherStation(String stationId) {

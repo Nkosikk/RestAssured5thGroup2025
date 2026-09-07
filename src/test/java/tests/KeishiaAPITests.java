@@ -1,9 +1,11 @@
 package tests;
+
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 import payloadBuilder.WeatherStationAPIPayload;
 import requestBuilder.WeatherStationRequestBuilder;
+
 import static org.hamcrest.Matchers.*;
 
 public class KeishiaAPITests {
@@ -23,7 +25,7 @@ public class KeishiaAPITests {
                 .statusCode(201)
                 .body("ID", notNullValue());
 
-        // ✅ Capture generated station ID
+        // Capture generated station ID
         stationId = response.jsonPath().getString("ID");
         externalId = response.jsonPath().getString("external_id");
 
@@ -67,7 +69,6 @@ public class KeishiaAPITests {
                 .body("message", equalTo("Station not found")); // optional: check the error message
     }
 
-
     @Test(priority = 6)
 
     public void emptyStationName() {
@@ -90,8 +91,8 @@ public class KeishiaAPITests {
                         "Bad or zero length station name"
                 ));
 
-
     }
+
     @Test(priority = 7)
     public void invalidExternalId() {
 
@@ -114,7 +115,7 @@ public class KeishiaAPITests {
                 ));
     }
 
-    @Test(priority = 7)
+    @Test(priority = 8)
     public void invalidRangeValuesTest() {
 
         JSONObject payload = WeatherStationAPIPayload.invalidRangeValues(

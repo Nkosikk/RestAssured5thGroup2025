@@ -15,14 +15,14 @@ public class NdosiRequestBuilder {
     static String authToken;
     static String testimonialId;
 
-    public static Response loginUserResponse(){
+    public static Response loginUserResponse(String email, String password){
 
         Response response = RestAssured.given()
                 .baseUri(baseURL)
                 .basePath("/API/login")
                 .contentType(ContentType.JSON)
                 .log().all()
-                .body(loginUserPayload("user_419809@example.com","SecurePass123!"))
+                .body(loginUserPayload(email,password))
                 .post()
                 .then()
                 .extract().response();
